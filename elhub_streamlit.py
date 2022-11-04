@@ -18,17 +18,17 @@ st.title("Visualisering av Elhub data")
 st.subheader('Kilde: https://elhub.no/statistikk/')
 
 #Cache data so it does not load for every time different regions is chosen
-@st.cache
+@st.cache(ttl= 86400)
 def load_data1():
     data1 = pd.read_excel('https://elhub.no/app/uploads/2022/10/Daglig-produksjon-pr-gruppe-og-prisomrade-MWh.xlsx')
     return data1
 
-@st.cache
+@st.cache(ttl= 86400)
 def load_data2():
     data2 = pd.read_excel('https://elhub.no/app/uploads/2022/10/Daglig-nettap-pr-prisomrade-MWh.xlsx')
     return data2
 
-@st.cache
+@st.cache(ttl= 86400)
 def load_data3():
     data3 = pd.read_excel('https://elhub.no/app/uploads/2022/10/Daglig-forbruk-pr-gruppe-og-prisomrade-MWh.xlsx')
     return data3
