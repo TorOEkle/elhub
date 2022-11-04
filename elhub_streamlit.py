@@ -14,8 +14,8 @@ import plotly.express as px
 #    st.subheader('Source: https://elhub.no/statistikk/')
 #with col3:
 #    st.write("")
-st.title("Plot of Elhub data")
-st.subheader('Source: https://elhub.no/statistikk/')
+st.title("Visualisering av Elhub data")
+st.subheader('Kilde: https://elhub.no/statistikk/')
 
 #Cache data so it does not load for every time different regions is chosen
 @st.cache
@@ -78,14 +78,14 @@ df_group = df_group.astype({'region':'category',
                 'dato': 'datetime64',
                 'gruppe':'category'})
 
-st.write('Map where different regions is https://www.nordpoolgroup.com/en/maps/#/nordic')
+st.write('Kart over hvor de ulike regionene er https://www.nordpoolgroup.com/en/maps/#/nordic')
 options = st.multiselect(
-    'Which region do you want to look at?',
-    ['NO1', 'NO2', 'NO3', 'NO4', 'NO5'],['NO1', 'NO2', 'NO3', 'NO4', 'NO5'], help= 'If more than one region is choosen, data is aggregated over these regions')
+    'Hvilke region(er) vil du se på?',
+    ['NO1', 'NO2', 'NO3', 'NO4', 'NO5'],['NO1', 'NO2', 'NO3', 'NO4', 'NO5'], help= 'Data blir aggregert for de valgte regionene, velg alle = Norge')
 
 length = len(options)
 if length == 0:
-    st.warning('Choose at least one region')
+    st.warning('Velg minst en region')
     st.stop()
 elif length == 1:
     df_produksjon_filter = df_produksjon[df_produksjon['region'] == options[0]]
@@ -101,25 +101,25 @@ else:
  
 
 
-st.subheader(f'''Plots for  {options}''')
+st.subheader(f'''Grafer for  {options}''')
 #Prepare plots
-fig_loss = px.line(df_loss_filter, x = 'dato', y= ['fysisk_tap', 'admin_tap'], template= 'plotly_white' , title='Transmission loss')
+fig_loss = px.line(df_loss_filter, x = 'dato', y= ['fysisk_tap', 'admin_tap'], template= 'plotly_white' , title='Transmissjonstap')
 fig_loss.update_layout({
 'plot_bgcolor': 'rgba(0, 0, 0, 0)',
 'paper_bgcolor': 'rgba(0, 0, 0, 0)',
-}, showlegend=False, yaxis_title="Volume [Mwh]")
+}, showlegend=False, yaxis_title="Volum [MWh]")
 
-fig_group = px.line(df_group_filter, x = 'dato', y= ['volum'], color= 'gruppe', template= 'plotly_white', title= 'Consumption by group' )
+fig_group = px.line(df_group_filter, x = 'dato', y= ['volum'], color= 'gruppe', template= 'plotly_white', title= 'Forbruk per gruppe' )
 fig_group.update_layout({
 'plot_bgcolor': 'rgba(0, 0, 0, 0)',
 'paper_bgcolor': 'rgba(0, 0, 0, 0)',
-}, showlegend=False, yaxis_title="Volume [Mwh]")
+}, showlegend=False, yaxis_title="Volum [MWh]")
 
-fig_prod = px.line(df_produksjon_filter,x = 'dato', y = 'volum', color= 'produksjonstype',template="plotly_white",title="Production by source")
+fig_prod = px.line(df_produksjon_filter,x = 'dato', y = 'volum', color= 'produksjonstype',template="plotly_white",title="Produksjon per type")
 fig_prod.update_layout({
 'plot_bgcolor': 'rgba(0, 0, 0, 0)',
 'paper_bgcolor': 'rgba(0, 0, 0, 0)',
-}, showlegend=False, yaxis_title="Volume [Mwh]")
+}, showlegend=False, yaxis_title="Volum [MWh]")
 
 st.plotly_chart(fig_prod, use_container_width=True)
 st.plotly_chart(fig_group, use_container_width=True)
