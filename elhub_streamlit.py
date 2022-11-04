@@ -77,7 +77,7 @@ df_group = df_group.astype({'region':'category',
                 'volum':'int64',
                 'antall_konsumenter': 'int64',
                 'dato': 'datetime64',
-                'gruppe':'category'})'
+                'gruppe':'category'})
 
 ## Add prod volume to transmission loss df
 df_prod_volum = df_produksjon.groupby(['dato', 'region'])[['volum']].sum().reset_index()
