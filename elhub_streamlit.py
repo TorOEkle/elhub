@@ -95,6 +95,7 @@ if length == 0:
 elif length == 1:
     df_produksjon_filter = df_produksjon[df_produksjon['region'] == options[0]]
     df_loss_filter = df_loss[df_loss['region'] == options[0]]
+    df_loss_filter['fysisk_tap_andel'] = df_loss_filter['fysisk_tap']/df_loss_filter['prod_volum']
     df_group_filter = df_group[df_group['region'] == options[0]]
 else:
     df_produksjon_filter = df_produksjon[df_produksjon['region'].isin(options)] # Filter for choosen regions
