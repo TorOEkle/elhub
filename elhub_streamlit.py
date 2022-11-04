@@ -3,17 +3,20 @@ st.set_page_config(layout="wide", page_title= 'Elhub visualized', page_icon= "li
 import pandas as pd
 import numpy as np
 import plotly.express as px
-from PIL import Image
+#from PIL import Image
 
-image = Image.open('elhub_logo.png')
-col1, col2, col3 = st.columns([1.5,2,3])
-with col1:
-    st.image(image, width= 300)
-with col2:
-    st.title("Plot of Elhub data")
-    st.subheader('Source: https://elhub.no/statistikk/')
-with col3:
-    st.write("")
+#image = Image.open('elhub_logo.png')
+#col1, col2, col3 = st.columns([1.5,2,3])
+#with col1:
+#    st.image(image, width= 300)
+#with col2:
+#    st.title("Plot of Elhub data")
+#    st.subheader('Source: https://elhub.no/statistikk/')
+#with col3:
+#    st.write("")
+st.title("Plot of Elhub data")
+st.subheader('Source: https://elhub.no/statistikk/')
+
 #Cache data so it does not load for every time different regions is chosen
 @st.cache
 def load_data1():
