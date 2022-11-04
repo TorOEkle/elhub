@@ -78,6 +78,7 @@ df_group = df_group.astype({'region':'category',
                 'dato': 'datetime64',
                 'gruppe':'category'})
 
+st.write('Map where different regions is https://www.nordpoolgroup.com/en/maps/#/nordic')
 options = st.multiselect(
     'Which region do you want to look at?',
     ['NO1', 'NO2', 'NO3', 'NO4', 'NO5'],['NO1', 'NO2', 'NO3', 'NO4', 'NO5'], help= 'If more than one region is choosen, data is aggregated over these regions')
