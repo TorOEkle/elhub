@@ -11,7 +11,7 @@ with col1:
     st.image(image, width= 300)
 with col2:
     st.title("Visualisering av Elhub data")
-    st.subheader('Source: https://elhub.no/statistikk/')
+    st.subheader('Kilde: https://elhub.no/statistikk/')
 with col3:
     st.write("")
 #st.title("Visualisering av Elhub data")
