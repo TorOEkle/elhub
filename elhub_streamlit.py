@@ -106,19 +106,19 @@ fig_loss = px.line(df_loss_filter, x = 'dato', y= ['fysisk_tap', 'admin_tap'], t
 fig_loss.update_layout({
 'plot_bgcolor': 'rgba(0, 0, 0, 0)',
 'paper_bgcolor': 'rgba(0, 0, 0, 0)',
-}, showlegend=False)
+}, showlegend=False, yaxis_title="Volume [Mwh]")
 
 fig_group = px.line(df_group_filter, x = 'dato', y= ['volum'], color= 'gruppe', template= 'plotly_white', title= 'Consumption by group' )
 fig_group.update_layout({
 'plot_bgcolor': 'rgba(0, 0, 0, 0)',
 'paper_bgcolor': 'rgba(0, 0, 0, 0)',
-}, showlegend=False)
+}, showlegend=False, yaxis_title="Volume [Mwh]")
 
 fig_prod = px.line(df_produksjon_filter,x = 'dato', y = 'volum', color= 'produksjonstype',template="plotly_white",title="Production by source")
 fig_prod.update_layout({
 'plot_bgcolor': 'rgba(0, 0, 0, 0)',
 'paper_bgcolor': 'rgba(0, 0, 0, 0)',
-}, showlegend=False)
+}, showlegend=False, yaxis_title="Volume [Mwh]")
 
 st.plotly_chart(fig_prod, use_container_width=True)
 st.plotly_chart(fig_group, use_container_width=True)
