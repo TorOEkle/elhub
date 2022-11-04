@@ -1,5 +1,5 @@
 import streamlit as st
-st.set_page_config(layout="wide", page_title= 'Elhub visualized', page_icon= "lightning")
+st.set_page_config(layout="wide", page_title= 'Elhub visualisert', page_icon= "lightning")
 import pandas as pd
 from plotly.subplots import make_subplots
 import numpy as np
@@ -10,7 +10,7 @@ col1, col2, col3 = st.columns([1.5,2,3])
 with col1:
     st.image(image, width= 300)
 with col2:
-    st.title("Plot of Elhub data")
+    st.title("Visualisering av Elhub data")
     st.subheader('Source: https://elhub.no/statistikk/')
 with col3:
     st.write("")
@@ -137,4 +137,3 @@ st.plotly_chart(fig_group, use_container_width=True)
 st.plotly_chart(fig_loss, use_container_width=True)
 
 # run from terminal: py -m streamlit run elhub_streamlit.py
-
