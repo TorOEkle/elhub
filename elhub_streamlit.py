@@ -6,7 +6,7 @@ import numpy as np
 import plotly.express as px
 from PIL import Image
 image = Image.open('elhub_logo.png')
-col1, col2, col3 = st.columns([1.5,2,3])
+col1, col2, col3 = st.columns([1.5,2.5,2.5])
 with col1:
     st.image(image, width= 300)
 with col2:
