@@ -78,6 +78,12 @@ df_group = df_group.astype({'region':'category',
                 'dato': 'datetime64',
                 'gruppe':'category'})
 
+#Correct for outlier in NO3 21. july 2021
+median_termal = df_produksjon.loc[(df_produksjon['region'] == 'NO3') & (df_produksjon['produksjonstype'] == 'Termisk kraft')].volum.median()
+df_produksjon.loc[(df_produksjon['region'] == 'NO3') & (df_produksjon['produksjonstype'] == 'Termisk kraft')& (df_produksjon['dato'] == '2020-07-21'), 'volum'] = median_termal
+median_gruppe = df_group.loc[(df_group['region'] == 'NO3') & (df_group['gruppe'] == 'Elektrisitets-, gass-, damp- og varmtvannsforsyning')].volum.median()
+df_group.loc[(df_group['region'] == 'NO3') & (df_group['dato'] == '2020-07-21') & (df_group['gruppe'] == 'Elektrisitets-, gass-, damp- og varmtvannsforsyning'), 'volum'] = median_gruppe
+
 ## Add prod volume to transmission loss df
 df_prod_volum = df_produksjon.groupby(['dato', 'region'])[['volum']].sum().reset_index()
 df_loss = pd.merge(df_loss, df_prod_volum, how='left', left_on=['dato','region'], right_on=['dato','region'])
