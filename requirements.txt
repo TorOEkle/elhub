@@ -3,5 +3,5 @@ pandas
 numpy
 plotly.express
 plotly
-PIL
+Pillow
 re
