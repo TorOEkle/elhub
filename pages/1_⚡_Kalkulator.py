@@ -8,7 +8,8 @@ dict = {'Vaskemaskin': 2.250,
         'Komfyr': 1.250,
         'Kaffetrakter': 1.250,
         'Panelovn': 0.100,
-        'Varmepumpe': 0.750}
+        'Varmepumpe': 0.750,
+        'Dusj': 32}
 test = pd.DataFrame(dict, index = [0])
 
 
