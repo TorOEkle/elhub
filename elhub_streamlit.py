@@ -39,7 +39,7 @@ def load_data3(ttl= 86400):
     return data3
 
 df_produksjon = load_data1()
-df_loss = load_data2()
+#df_loss = load_data2()
 df_group = load_data3()
 
 #Wrangle production data
