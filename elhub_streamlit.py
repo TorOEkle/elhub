@@ -55,13 +55,13 @@ df_produksjon = df_produksjon.astype({'volum':'int64',
                 'dato': 'datetime64[ns]'})
 
 ## Wrangle transmission loss data
-df_loss.rename(columns={
+#df_loss.rename(columns={
     'Bruksdøgn':'dato',
     'Prisområde':'region',
     'Fysisk Nettap':'fysisk_tap',
     'Administrativt Nettap': 'admin_tap'
 }, inplace = True)
-df_loss = df_loss.astype({'region':'category',
+#df_loss = df_loss.astype({'region':'category',
                 'admin_tap':'int64',
                 'fysisk_tap': 'int64',
                 'dato': 'datetime64[ns]'})
