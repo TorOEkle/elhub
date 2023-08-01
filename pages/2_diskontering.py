@@ -47,7 +47,7 @@ fig = px.line(df, x="n", y="diskontert_verd_cumsum", title='Diskontert verdi')
 # change title of x axis
 fig.update_xaxes(title_text='År')
 #change title of y axis
-fig.update_yaxes(title_text='Diskontert cashflow (MNOK/MWh)')
+fig.update_yaxes(title_text='Diskontert cashflow (MNOK/MW)')
 st.plotly_chart(fig)
 
 st.dataframe(df)
