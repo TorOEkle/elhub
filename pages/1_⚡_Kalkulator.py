@@ -11,7 +11,6 @@ dict = {'Vaskemaskin': 2.250,
         'Varmepumpe': 0.750}
 test = pd.DataFrame(dict, index = [0])
 
-
 apparat = st.selectbox('Velg et apparat', list(dict.keys()))
 c1, c2, c3 = st.columns(3)
 with c1:
