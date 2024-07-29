@@ -3,7 +3,7 @@ import streamlit as st
 
 st.header('Diskontering')
 byggetid = st.number_input('Byggetid (år)', min_value=0, max_value=100, value=3, step=1)
-byggekost = st.number_input('Byggekost (MNOK/mw)', min_value=0, max_value=50, value=30, step=1)
+byggekost = st.number_input('Byggekost (MNOK/mw)', min_value=0, max_value=150, value=30, step=1)
 kraftpris = st.number_input('Kraftpris (øre/kwh)', min_value=0, max_value=200, value=60, step=1)
 levetid = st.number_input('Levetid (år)', min_value=0, max_value=100, value=60, step=1)
 diskonteringsrente = st.number_input('Diskonteringsrente (%)', min_value=0.0, max_value=100.0, value=7.0, step=0.1)
